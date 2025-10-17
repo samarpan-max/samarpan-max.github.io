@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nancy Tran | Bay Area Realtor®</title>
+  <meta name="description" content="Your Bay Area Home, My Expertise. Nancy Tran is a licensed Realtor® helping buyers, sellers, and investors across the Bay Area." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14; /* deep slate */
+      --ink:#111827; /* gray-900 */
+      --muted:#6b7280; /* gray-500 */
+      --brand:#1f6feb; /* blue */
+      --brand-ink:#0b3d91;
+      --paper:#ffffff;
+      --card:#f7fafc;
+      --ring:rgba(31,111,235,.35);
+      --shadow: 0 10px 25px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:#fff;}
+    img{max-width:100%;display:block}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-ink)}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:14px 18px;border-radius:999px;font-weight:700;border:1px solid transparent;transition:.2s;box-shadow:var(--shadow);}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.primary:hover{background:var(--brand-ink)}
+    .btn.outline{background:#fff;border-color:#e5e7eb;color:var(--ink)}
+    .btn.outline:hover{border-color:#cbd5e1}
+    header{position:sticky;top:0;background:#ffffffd9;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eef2f7;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
+    .nav .links{display:flex;gap:18px}
+    .nav .links a{font-weight:700;color:#111827}
+    .hero{position:relative;min-height:75vh;display:grid;place-items:center;background:linear-gradient(180deg, #0b0f14 0%, #101827 100%);color:#fff;overflow:hidden}
+    .hero .bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;opacity:.35}
+    .hero .overlay{position:absolute;inset:0;background:radial-gradient(1000px 500px at 10% 10%, rgba(31,111,235,.35), transparent 60%), radial-gradient(1000px 500px at 90% 90%, rgba(31,111,235,.25), transparent 60%)}
+    .hero .content{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    @media (max-width:900px){.hero .content{grid-template-columns:1fr;gap:20px;}}
+    .headline{font-size:clamp(32px,5vw,54px);line-height:1.05;margin:10px 0 14px;font-weight:900}
+    .subhead{font-size:clamp(16px,2.2vw,20px);line-height:1.6;color:#e5e7eb;max-width:60ch}
+    .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .headshot{width:min(360px,80vw);border-radius:var(--radius);overflow:hidden;border:4px solid rgba(255,255,255,.35);box-shadow:0 25px 60px rgba(2,6,23,.35)}
+
+    section{padding:80px 0}
+    section.alt{background:var(--card)}
+    h2{font-size:clamp(26px,3.2vw,36px);margin:0 0 14px}
+    p.lead{font-size:18px;color:var(--muted);max-width:75ch}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+    .about .pic{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    @media (max-width:900px){.about{grid-template-columns:1fr}}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    @media (max-width:900px){.services{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid #eef2f7;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+    .card ul{margin:12px 0 0;padding-left:18px;color:#374151}
+    .center{text-align:center}
+
+    .listings{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    @media (max-width:1000px){.listings{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:700px){.listings{grid-template-columns:1fr}}
+    .listing{overflow:hidden;padding:0}
+    .listing img{height:190px;width:100%;object-fit:cover}
+    .listing .meta{padding:16px}
+    .price{font-weight:900;font-size:20px}
+    .loc{color:var(--muted);font-size:14px}
+
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    @media (max-width:1000px){.testimonials{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:700px){.testimonials{grid-template-columns:1fr}}
+    .quote{font-style:italic;color:#111827}
+    .by{margin-top:10px;color:var(--muted);font-weight:700}
+
+    form{display:grid;gap:12px;margin-top:18px}
+    label{font-weight:700}
+    input, textarea{padding:12px 14px;border:1px solid #e5e7eb;border-radius:12px;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    input:focus, textarea:focus{outline:2px solid var(--ring);border-color:#c7ddff}
+
+    footer{padding:36px 0;border-top:1px solid #eef2f7;background:#fff}
+    .small{font-size:14px;color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#233876;font-weight:800;letter-spacing:.3px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 10.5L12 4l9 6.5v8a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18.5v-8z" stroke="#1f6feb" stroke-width="1.6"/><path d="M9 20v-6h6v6" stroke="#1f6feb" stroke-width="1.6"/></svg>
+        <span>Nancy Tran, Realtor®</span>
+      </div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#listings">Listings</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn primary" style="padding:8px 14px;box-shadow:none">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="container content">
+      <div>
+        <span class="pill">Your Bay Area Home, My Expertise.</span>
+        <h1 class="headline">Your Bay Area Home,<br/> My Expertise.</h1>
+        <p class="subhead">I’m <strong>Nancy Tran</strong>, a licensed Realtor® helping clients buy, sell, and invest in Bay Area real estate. With local expertise and a personalized approach, I make your real estate journey smooth and successful.</p>
+        <div class="cta">
+          <a class="btn primary" href="#listings">Find Your Dream Home</a>
+          <a class="btn outline" href="#contact">Get a Free Home Valuation</a>
+        </div>
+      </div>
+      <div class="headshot">
+        <!-- Replace headshot.jpg with your photo -->
+        <img src="headshot.jpg" alt="Nancy Tran headshot"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <div class="pic">
+        <!-- Replace about.jpg with a warm professional photo -->
+        <img src="about.jpg" alt="Nancy meeting clients in a modern living room" />
+      </div>
+      <div>
+        <h2>Meet Nancy Tran</h2>
+        <p class="lead">I’m a licensed Realtor® passionate about helping families and investors find their perfect homes and maximize their returns. My clients choose me for my personalized approach, clear communication, and dedication to results. Whether you’re buying your first home or selling your current property, I’ll be with you every step of the way.</p>
+        <!-- Optional short intro video: uncomment and replace link
+        <div style="margin-top:14px">
+          <a class="btn outline" href="https://your-video-link" target="_blank" rel="noopener">Watch 1‑min Intro Video</a>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="alt" id="services">
+    <div class="container">
+      <h2>How I Can Help You</h2>
+      <div class="services">
+        <div class="card">
+          <h3>🏡 Buying a Home</h3>
+          <ul>
+            <li>Personalized property search based on your needs</li>
+            <li>Negotiation strategies to secure the best price</li>
+            <li>Guidance through every step, from offer to closing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>📈 Selling Your Home</h3>
+          <ul>
+            <li>Free home valuation and pricing strategy</li>
+            <li>Professional staging and photography</li>
+            <li>Marketing your home for top‑dollar offers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>💼 Real Estate Investments</h3>
+          <ul>
+            <li>Identifying profitable opportunities</li>
+            <li>Market analysis and ROI projections</li>
+            <li>Build long‑term wealth through real estate</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center" style="margin-top:22px">
+        <a class="btn primary" href="#contact">Schedule a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Listings -->
+  <section id="listings">
+    <div class="container">
+      <h2>Explore Homes Across the Bay Area</h2>
+      <p class="lead">Highlight a few active or recent listings. Link out to your MLS / IDX page for full search.</p>
+      <div class="listings">
+        <!-- Repeat/replace these listing cards or wire up to an IDX later -->
+        <article class="card listing">
+          <img src="listing-1.jpg" alt="Modern home exterior in San Jose" />
+          <div class="meta">
+            <div class="price">$1,295,000</div>
+            <div class="loc">3 Bed • 2 Bath • San Jose, CA</div>
+            <p style="margin-top:8px">Bright, updated home near top schools and parks.</p>
+            <a class="btn outline" href="#" aria-label="View Listing 1">View Details</a>
+          </div>
+        </article>
+        <article class="card listing">
+          <img src="listing-2.jpg" alt="Condo with city views in San Francisco" />
+          <div class="meta">
+            <div class="price">$899,000</div>
+            <div class="loc">2 Bed • 2 Bath • San Francisco, CA</div>
+            <p style="margin-top:8px">Corner unit with skyline views and private balcony.</p>
+            <a class="btn outline" href="#" aria-label="View Listing 2">View Details</a>
+          </div>
+        </article>
+        <article class="card listing">
+          <img src="listing-3.jpg" alt="Family home in Fremont" />
+          <div class="meta">
+            <div class="price">$1,150,000</div>
+            <div class="loc">4 Bed • 3 Bath • Fremont, CA</div>
+            <p style="margin-top:8px">Spacious yard, quiet street, move‑in ready.</p>
+            <a class="btn outline" href="#" aria-label="View Listing 3">View Details</a>
+          </div>
+        </article>
+      </div>
+      <div class="center" style="margin-top:18px">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">View All Listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="alt" id="testimonials">
+    <div class="container">
+      <h2>What My Clients Say</h2>
+      <div class="testimonials">
+        <div class="card">
+          <p class="quote">“Nancy made the entire process so easy! She helped us sell our home above asking and guided us through every detail.”</p>
+          <div class="by">— Jennifer L., San Jose</div>
+        </div>
+        <div class="card">
+          <p class="quote">“As first‑time buyers, we felt supported at every step. Nancy’s market knowledge got us our dream home.”</p>
+          <div class="by">— Ravi & Meera, Fremont</div>
+        </div>
+        <div class="card">
+          <p class="quote">“Sharp, responsive, and strategic. Our investment property already outperformed projections.”</p>
+          <div class="by">— Daniel P., Cupertino</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Let’s Get Started</h2>
+      <p class="lead">Have questions about buying or selling a home? I’d love to help you navigate the Bay Area market.</p>
+      <div class="about" style="grid-template-columns:1fr 1fr;gap:26px">
+        <div class="card">
+          <!-- ACTION: Replace the 'action' with your Formspree endpoint (https://formspree.io) or similar. -->
+          <form id="contactForm" action="#" method="POST">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your Name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(###) ###‑####" />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me a bit about your goals…" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Submit Inquiry</button>
+            <div id="formStatus" class="small" role="status" aria-live="polite" style="margin-top:6px"></div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Reach Me Directly</h3>
+          <p class="lead" style="margin-top:10px">
+            📧 <a href="mailto:yourname@email.com">yourname@email.com</a><br/>
+            📱 <a href="tel:+1xxxxxxxxxx">(xxx) xxx‑xxxx</a><br/>
+            📍 Serving the Bay Area
+          </p>
+          <p class="small">Prefer a quick intro call? Click the button below to pick a time.</p>
+          <p><a class="btn outline" href="#" target="_blank" rel="noopener">Book a 15‑min Call</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+      <div class="small">© <span id="year"></span> Nancy Tran. All rights reserved.</div>
+      <div class="small">DRE License #00000000 • Brokered by Your Brokerage</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Basic form handling (no backend). Replace form.action with Formspree endpoint to actually send.
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      try{
+        // If you add a real endpoint, change URL below to form.action and method to form.method
+        // Demo only:
+        await new Promise(r=>setTimeout(r,900));
+        form.reset();
+        status.textContent = 'Thanks! Your message has been received.';
+      }catch(err){
+        status.textContent = 'Sorry, something went wrong. Please email or call me directly.';
+      }
+    });
+  </script>
+</body>
+</html>
