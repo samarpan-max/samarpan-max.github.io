@@ -1,3 +1,4 @@
+<!-- Content of index.html (Home Page) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,95 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      /* Neutral, professional palette with subtle enhancements for wow factor */
-      --bg:#ffffff; /* base */
-      --ink:#0f172a; /* slate-900 */
-      --muted:#475569; /* slate-600 */
-      --line:#e2e8f0; /* slate-200 */
-      --brand:#1f2937; /* subtle brand accent (slate-800) */
-      --accent:#2563eb; /* link/cta blue */
-      --card:#f8fafc; /* light panel */
-      --shadow:0 10px 30px rgba(2,6,23,.06);
-      --radius:16px;
-    }
-    *,*:before,*:after{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);}
-    img{max-width:100%;display:block}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    /* Header */
-    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);backdrop-filter:saturate(180%) blur(8px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo svg{color:var(--accent)}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{font-weight:600;color:var(--ink)}
-    /* Buttons */
-    .btn{display:inline-block;padding:12px 16px;border-radius:999px;border:1px solid var(--line);font-weight:700;background:#fff;color:var(--ink);box-shadow:var(--shadow);transition:.2s}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 15px 40px rgba(2,6,23,.1);text-decoration:none}
-    .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
-    .btn.ghost{background:transparent;border-color:var(--line)}
-    /* Hero with subtle wow factor (fade-in animation) */
-    .hero{position:relative;isolation:isolate}
-    .hero-media{position:relative;height:min(70vh,620px);background:#000;overflow:hidden}
-    .hero-media img{width:100%;height:100%;object-fit:cover;animation:fadeIn 1.5s ease-in-out}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 70%)}
-    .hero-inner{position:absolute;inset:0;display:grid;place-items:end start}
-    .hero-card{margin:28px;max-width:720px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;box-shadow:var(--shadow);animation:slideUp 1s ease-out}
-    .eyebrow{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.12em;color:#0f172a;background:#e2e8f0;border-radius:999px;padding:6px 10px}
-    .headline{font-size:clamp(28px,4.6vw,48px);line-height:1.1;margin:10px 0 6px;font-weight:800;color:#0f172a}
-    .subhead{font-size:clamp(15px,2.2vw,18px);line-height:1.6;color:#334155;max-width:65ch;margin:0}
-    .cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    @keyframes fadeIn {from{opacity:0} to{opacity:1}}
-    @keyframes slideUp {from{transform:translateY(50px);opacity:0} to{transform:translateY(0);opacity:1}}
-    /* Sections */
-    section{padding:72px 0}
-    section.alt{background:var(--card)}
-    h2{font-size:clamp(24px,3vw,34px);margin:0 0 8px}
-    p.lead{font-size:18px;color:var(--muted);max-width:75ch}
-    .about{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center}
-    .about .pic{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s}
-    .about .pic:hover{transform:scale(1.02)}
-    @media (max-width:900px){.about{grid-template-columns:1fr}}
-    /* Services */
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    @media (max-width:900px){.services{grid-template-columns:1fr}}
-    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.3s}
-    .card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(2,6,23,.1)}
-    .card h3{margin:0 0 6px}
-    .card ul{margin:12px 0 0;padding-left:18px;color:#334155}
-    /* Listings with hover wow factor */
-    .listings{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
-    @media (max-width:1100px){.listings{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:800px){.listings{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){.listings{grid-template-columns:1fr}}
-    .listing{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:.3s}
-    .listing:hover{transform:scale(1.02);box-shadow:0 15px 40px rgba(2,6,23,.1)}
-    .listing .photo{height:180px;background:#cbd5e1;overflow:hidden}
-    .listing .photo img{width:100%;height:100%;object-fit:cover;transition:.3s}
-    .listing:hover .photo img{transform:scale(1.05)}
-    .listing .meta{padding:14px}
-    .price{font-weight:800;font-size:18px}
-    .addr{color:#334155;margin-top:4px}
-    .specs{display:flex;gap:10px;flex-wrap:wrap;color:#475569;font-weight:600;margin:8px 0}
-    .tag{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:12px;color:#0f172a}
-    /* Testimonials */
-    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    @media (max-width:1000px){.testimonials{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.testimonials{grid-template-columns:1fr}}
-    /* Contact */
-    form{display:grid;gap:12px;margin-top:14px}
-    label{font-weight:700}
-    input, textarea{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit}
-    textarea{min-height:120px;resize:vertical}
-    input:focus, textarea:focus{outline:2px solid rgba(37,99,235,.25);border-color:#bfdbfe}
-    /* Footer */
-    footer{padding:32px 0;border-top:1px solid var(--line);background:#fff}
-    .small{font-size:14px;color:#64748b}
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -116,8 +29,7 @@
   </header>
   <!-- HERO -->
   <section class="hero" id="home">
-    <!-- Replace hero-house.jpg with your high-res house image (3000px+ recommended) -->
-    <div class="hero-media"><img src="hero-house.jpg" alt="Bay Area home exterior"/><div class="hero-overlay"></div></div>
+    <div class="hero-media"><img src="images/hero-house.jpg" alt="Bay Area home exterior"/><div class="hero-overlay"></div></div>
     <div class="hero-inner">
       <div class="hero-card">
         <span class="eyebrow">Trusted Bay Area Real Estate Expert</span>
@@ -134,7 +46,7 @@
   <section id="about">
     <div class="container about">
       <div class="pic">
-        <img src="about.jpg" alt="Nancy meeting clients in a modern living room" />
+        <img src="images/about.jpg" alt="Nancy meeting clients in a modern living room" />
       </div>
       <div>
         <h2>Meet Nancy Tran</h2>
@@ -185,9 +97,8 @@
       <h2>Featured Listings</h2>
       <p class="lead">Discover some of our highlighted properties in the Bay Area. Click to view details or explore all available listings.</p>
       <div class="listings">
-        <!-- Listing 1 -->
         <article class="listing">
-          <div class="photo"><img src="listing-1.jpg" alt="Contemporary home in San Jose"/></div>
+          <div class="photo"><img src="images/listing-1.jpg" alt="Contemporary home in San Jose"/></div>
           <div class="meta">
             <div class="price">$1,295,000</div>
             <div class="addr">1234 Willow Glen Way, San Jose, CA</div>
@@ -196,9 +107,8 @@
             <a class="btn" href="listing-1.html">View Details</a>
           </div>
         </article>
-        <!-- Listing 2 -->
         <article class="listing">
-          <div class="photo"><img src="listing-2.jpg" alt="Condo with city views in San Francisco"/></div>
+          <div class="photo"><img src="images/listing-2.jpg" alt="Condo with city views in San Francisco"/></div>
           <div class="meta">
             <div class="price">$899,000</div>
             <div class="addr">88 Market St #1207, San Francisco, CA</div>
@@ -207,9 +117,8 @@
             <a class="btn" href="listing-2.html">View Details</a>
           </div>
         </article>
-        <!-- Listing 3 -->
         <article class="listing">
-          <div class="photo"><img src="listing-3.jpg" alt="Family home in Fremont"/></div>
+          <div class="photo"><img src="images/listing-3.jpg" alt="Family home in Fremont"/></div>
           <div class="meta">
             <div class="price">$1,150,000</div>
             <div class="addr">456 Oak Knoll Dr, Fremont, CA</div>
@@ -218,9 +127,8 @@
             <a class="btn" href="listing-3.html">View Details</a>
           </div>
         </article>
-        <!-- Listing 4 -->
         <article class="listing">
-          <div class="photo"><img src="listing-4.jpg" alt="Townhome in Cupertino"/></div>
+          <div class="photo"><img src="images/listing-4.jpg" alt="Townhome in Cupertino"/></div>
           <div class="meta">
             <div class="price">$1,325,000</div>
             <div class="addr">101 Apple Park Way #8, Cupertino, CA</div>
@@ -293,7 +201,7 @@
     });
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Demo form handler (replace action with Formspree to send real messages)
+    // Demo form handler
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     form?.addEventListener('submit', async (e)=>{
