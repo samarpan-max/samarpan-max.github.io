@@ -23,10 +23,18 @@ html,body{
   line-height:1.6;
   min-height:100vh;
   margin:0;padding:0;
+  overflow-x: hidden;
 }
 img{max-width:100%;display:block}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
+
+/* Mobile base font size */
+@media (max-width: 768px) {
+  html, body {
+    font-size: 16px;
+  }
+}
 
 /* NAVIGATION - Premium redesign with subtle color */
 header {
@@ -139,6 +147,34 @@ header.sticky-glow {
 .links a::after {content:'';position:absolute;left:50%;bottom:3px;width:0;height:3px;background:linear-gradient(90deg,#d7e2fa 40%,#b6bddb 100%);border-radius:2px;transition:width .28s cubic-bezier(.6,.4,0,1.13), left .28s cubic-bezier(.23,.82,.47,1.25);opacity:.56;pointer-events:none;z-index:-1;}
 .links a.hovered::after, .links a.active::after {width:81%;left:10%;}
 
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav {
+    padding: 12px 4vw;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 1.15rem;
+  }
+  .logo svg {
+    width: 28px;
+    height: 28px;
+  }
+  .links {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .links a {
+    font-size: 0.85em;
+    padding: 8px 12px;
+  }
+  .links a.btn.primary {
+    padding: 8px 14px;
+    font-size: 0.85em;
+    margin-left: 0;
+  }
+}
+
 /* BUTTONS */
 .btn{
   padding:14px 22px;
@@ -169,9 +205,12 @@ header.sticky-glow {
   min-height: auto;
   display: block;
   position: relative;
-  padding: 0;
+  padding: 0 !important;
   margin-bottom: 0;
   margin-top: 0;
+}
+.hero:before {
+  display: none !important;
 }
 
 .hero-media {
@@ -226,15 +265,34 @@ header.sticky-glow {
 
 @media (max-width: 768px) {
   .hero-media {
-    aspect-ratio: 1.8 / 1;
-    min-height: 220px;
+    aspect-ratio: 1.2 / 1;
+    min-height: 320px;
+    max-height: 450px;
   }
   .hero-inner {
-    padding: 20px;
+    padding: 16px;
+    align-items: center;
   }
   .hero-card {
-    padding: 24px 22px 20px;
-    margin-bottom: 12px;
+    padding: 20px 18px 18px;
+    margin-bottom: 8px;
+    max-width: 100%;
+  }
+  .headline {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+  .subhead {
+    font-size: 1rem !important;
+  }
+  .eyebrow {
+    font-size: 11px;
+  }
+  .cta {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -254,7 +312,8 @@ p.lead{font-size:1.20em;color:#7c8796;max-width:70ch;font-weight:500;letter-spac
 .cta{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
 
 .container{padding:40px 4vw;border-radius:26px;margin:0 auto;background:none;max-width:1200px;}
-@media (max-width:900px){.container{padding:28px 1.7vw;}}
+@media (max-width:900px){.container{padding:28px 5vw;}}
+@media (max-width:600px){.container{padding:24px 6vw;}}
 
 .card{
   background:var(--card);
