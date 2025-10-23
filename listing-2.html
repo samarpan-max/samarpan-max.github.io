@@ -1,0 +1,99 @@
+<!-- Content of listing-2.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>88 Market St #1207, San Francisco, CA | Nancy Tran</title>
+  <meta name="description" content="Details for condo with city views in San Francisco listed by Nancy Tran." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 6v9a1 1 0 0 1-1 1h-6v-6H10v6H4a1 1 0 0 1-1-1V9l9-6z"/></svg>
+        <span>Nancy Tran, Realtor®</span>
+      </div>
+      <nav class="links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="listings.html">All Listings</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="index.html#contact" class="btn primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <section style="padding:72px 0">
+    <div class="container">
+      <h2>88 Market St #1207, San Francisco, CA</h2>
+      <div class="price" style="font-size:24px; margin-bottom:10px;">$899,000</div>
+      <div class="specs" style="margin-bottom:20px;"><span>2 bd</span><span>2 ba</span><span>1,120 sqft</span><span>HOA $625/mo</span><span class="tag">In‑unit laundry</span><span class="tag">Parking</span></div>
+      <div class="detail-photo"><img src="images/listing-2.jpg" alt="Condo with city views in San Francisco"/></div>
+      <div class="description">
+        <p>This modern condo offers stunning city views, open-concept living, and premium amenities in a prime San Francisco location. Perfect for urban professionals with easy access to tech hubs and dining.</p>
+        <p>Additional highlights: Floor-to-ceiling windows, rooftop deck, and secure parking.</p>
+      </div>
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img src="images/listing-2-interior.jpg" alt="Interior view" />
+        <img src="images/listing-2-kitchen.jpg" alt="Kitchen" />
+        <img src="images/listing-2-view.jpg" alt="City view" />
+      </div>
+      <h3>Additional Details</h3>
+      <ul>
+        <li>Stainless steel appliances</li>
+        <li>In-unit washer/dryer</li>
+        <li>Building gym and concierge</li>
+        <li>Walkable to public transit</li>
+      </ul>
+      <h3>Location</h3>
+      <div style="height:300px; background:#e2e8f0; margin-bottom:20px;">
+        <p style="padding:20px; text-align:center;">Map placeholder - Embed Google Maps here.</p>
+      </div>
+      <div class="contact-bottom">
+        <h3>Interested in This Property or Similar Ones?</h3>
+        <p>Contact Nancy Tran for more information, to schedule a viewing, or to discuss similar properties in the area.</p>
+        <form id="similarForm" action="#" method="POST">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your Name" required />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="(###) ###‑####" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="I'm interested in similar properties..." required></textarea>
+          <button class="btn primary" type="submit">Request More Info</button>
+          <div id="formStatus" class="small" role="status" aria-live="polite" style="margin-top:6px"></div>
+        </form>
+        <p style="margin-top:20px;">
+          📧 <a href="mailto:nancytran021@gmail.com">nancytran021@gmail.com</a><br/>
+          📱 <a href="tel:+14085919999">(408) 591‑9999</a><br/>
+          📍 37600 Central Ct., #264, Newark, CA 94560
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+      <div class="small">© <span id="year"></span> Nancy Tran. All rights reserved.</div>
+      <div class="small">DRE License #02264658 • Brokered by Alliance Bay Realty • <a href="https://muabannhasj.com" target="_blank" rel="noopener">muabannhasj.com</a></div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('similarForm');
+    const status = document.getElementById('formStatus');
+    form?.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      await new Promise(r=>setTimeout(r,900));
+      form.reset();
+      status.textContent = 'Thanks! Your request has been received.';
+    });
+  </script>
+</body>
+</html>
