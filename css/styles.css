@@ -228,16 +228,12 @@ header.sticky-glow {
   }
 }
 
-/* Section delineation with dynamic effects */
-section{padding:88px 0 80px 0;position:relative;z-index:1;background-clip:padding-box;overflow:visible;}
+/* Section delineation - reduced gaps */
+section{padding:56px 0 52px 0;position:relative;z-index:1;background-clip:padding-box;overflow:visible;}
 section:before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(184deg,rgba(236,236,243,0.29) 0%,rgba(221,222,236,0.19) 100%);z-index:-1;}
-section:not(:last-of-type):after{content:'';display:block;width:90vw;max-width:900px;height:64px;margin:0 auto -35px auto;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(208,212,238,0.24) 68%,rgba(255,255,255,0));border-radius:48% 42% 80% 30%/30% 51% 56% 42%;filter:blur(8px);position:relative;z-index:-1;}
-section.angled-sep{clip-path:polygon(0 0,100% 0,100% 95%,0 100%);margin-bottom:0;}
-section.angled-sep:before{content:'';display:block;width:100vw;max-width:none;height:70px;background:linear-gradient(185deg,rgba(208,212,238,0.18),rgba(252,251,254,.0));clip-path:polygon(0 0,100% 20%,100% 100%,0 100%);position:absolute;bottom:-68px;left:0;z-index:2;}
 section.alt{background:linear-gradient(120deg, #f2f4fa 0%, #e9eaf4 100%);}
 section.fade-bg{background:linear-gradient(180deg,#f7f9fc 10%,#ececf3 80%,rgba(245,245,255,0.95) 100%)!important;}
-section:last-child:after{display:none;}
-@media (max-width:670px){ section:not(:last-of-type):after{height:40px;} }
+@media (max-width:670px){ section{padding:38px 0 34px 0;} }
 
 h2{font-size:clamp(2.1rem,3vw,2.8rem);margin:0 0 19px;line-height:1.14;color:#232338;font-weight:900;letter-spacing:.01em;text-shadow:0 2px 16px #f9faff;}
 h3 {font-size:clamp(1.2rem,2vw,1.7rem);color:#5b4c7a;margin-top:28px;margin-bottom:7px;letter-spacing:0.01em;font-weight:800;line-height:1.13;}
@@ -364,23 +360,29 @@ p.lead{font-size:1.20em;color:#7c8796;max-width:70ch;font-weight:500;letter-spac
   opacity:0.82;
 }
 
-/* DETAIL PAGE - center main photo */
+/* DETAIL PAGE - full-width hero photo */
 .detail-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 28px auto;
-  max-width: 480px;
+  width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
-  border-radius: 22px;
+  aspect-ratio: 2.5 / 1;
+  max-height: 480px;
+  margin: 0 0 32px 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8ecf7 0%, #f2f4fa 100%);
 }
 .detail-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 4px 32px -10px #bbcbe5;
+  border-radius: 0;
+  box-shadow: none;
+}
+@media (max-width: 768px) {
+  .detail-photo {
+    aspect-ratio: 1.8 / 1;
+    max-height: 320px;
+  }
 }
 .gallery {display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin:24px 0;}
 .gallery img {border-radius:var(--radius); box-shadow:var(--shadow);}
