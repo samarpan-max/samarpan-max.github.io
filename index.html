@@ -18,6 +18,11 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 6v9a1 1 0 0 1-1 1h-6v-6H10v6H4a1 1 0 0 1-1-1V9l9-6z"/></svg>
         <span>Nancy Tran, Realtor®</span>
       </a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -252,6 +257,41 @@
       if(window.scrollY>18){body.classList.add('has-scrolled');hdr?.classList.add('sticky-glow');}else{body.classList.remove('has-scrolled');hdr?.classList.remove('sticky-glow');}
     }
     window.addEventListener('scroll',toggleNav); toggleNav();
+  })();
+
+  // Mobile hamburger menu toggle
+  (function(){
+    const menuToggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.links');
+    const body = document.body;
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        links.classList.toggle('active');
+        body.classList.toggle('menu-open');
+      });
+      
+      // Close menu when clicking on a link
+      document.querySelectorAll('.links a').forEach(link => {
+        link.addEventListener('click', function() {
+          menuToggle.classList.remove('active');
+          links.classList.remove('active');
+          body.classList.remove('menu-open');
+        });
+      });
+      
+      // Close menu when clicking overlay
+      body.addEventListener('click', function(e) {
+        if (body.classList.contains('menu-open') && 
+            !links.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          links.classList.remove('active');
+          body.classList.remove('menu-open');
+        }
+      });
+    }
   })();
   </script>
 </body>
