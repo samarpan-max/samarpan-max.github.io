@@ -210,3 +210,47 @@ header.sticky-glow{background:rgba(246,247,255,0.97);box-shadow:0 12px 40px -12p
 
 body.has-scrolled header:not(.sticky-glow){transition:box-shadow .2s;background:rgba(245,246,255,0.99);box-shadow:0 4px 18px -5px #c3c8e8, 0 1px 0px var(--line);}
 body.has-scrolled header.sticky-glow{background:rgba(245,247,255,0.93);box-shadow:0 19px 48px -15px #bfcbe5a0,0 7px 24px -9px #caccf7c9,0 1.5px 0px #ebe8f3b9;}
+
+/* About (profile/headshot) image fix */
+.about .pic img {
+  width: 100%;
+  max-width: 320px;
+  max-height: 340px;
+  aspect-ratio: 1 / 1.12;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px -10px #bfcbe5;
+  display: block;
+}
+@media (max-width: 700px) {
+  .about .pic img {
+    max-width: 90vw;
+    max-height: 240px;
+  }
+}
+
+/* Modern aspect ratio for listing/detail photos */
+.listing .photo, .detail-photo {
+  aspect-ratio: 4 / 3;
+}
+.listing .photo img, .detail-photo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+}
+
+/* Tighter aspect for hero banner image */
+.hero-media {
+  aspect-ratio: 3 / 1;
+  min-height: 230px;
+  max-height: 430px;
+  overflow: hidden;
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
