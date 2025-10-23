@@ -28,7 +28,7 @@
     </div>
   </header>
   <!-- HERO -->
-  <section class="hero" id="home">
+  <section class="hero fade-bg" id="home">
     <div class="hero-media"><img src="images/hero-house.jpg" alt="Bay Area home exterior"/><div class="hero-overlay"></div></div>
     <div class="hero-inner">
       <div class="hero-card">
@@ -43,7 +43,7 @@
     </div>
   </section>
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="angled-sep">
     <div class="container about">
       <div class="pic">
         <img src="images/about.jpg" alt="Nancy meeting clients in a modern living room" />
@@ -60,7 +60,7 @@
     </div>
   </section>
   <!-- SERVICES -->
-  <section class="alt" id="services">
+  <section class="alt fade-bg" id="services">
     <div class="container">
       <h2>How I Can Help You</h2>
       <div class="services">
@@ -92,7 +92,7 @@
     </div>
   </section>
   <!-- FEATURED LISTINGS -->
-  <section id="listings">
+  <section id="listings" class="angled-sep">
     <div class="container">
       <h2>Featured Listings</h2>
       <p class="lead">Discover some of our highlighted properties in the Bay Area. Click to view details or explore all available listings.</p>
@@ -142,7 +142,7 @@
     </div>
   </section>
   <!-- TESTIMONIALS -->
-  <section class="alt" id="testimonials">
+  <section class="alt fade-bg" id="testimonials">
     <div class="container">
       <h2>What My Clients Say</h2>
       <div class="testimonials">
@@ -153,7 +153,7 @@
     </div>
   </section>
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="angled-sep">
     <div class="container">
       <h2>Let’s Get Started</h2>
       <p class="lead">Have questions about buying or selling a home? I’d love to help you navigate the Bay Area market.</p>
@@ -211,6 +211,48 @@
       form.reset();
       status.textContent = 'Thanks! Your message has been received.';
     });
+
+    // Fade-up scroll reveal
+    const revealOpts = { threshold: 0.18 };
+    document.querySelectorAll('.card, .listing, .about .pic, .hero-card, .testimonials .card').forEach(el => {
+      el.classList.add('reveal-up');
+    });
+    const showUp = el => el.classList.add('visible');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries,observer)=>{
+        entries.forEach(e=>{if(e.isIntersecting){showUp(e.target);observer.unobserve(e.target);}});
+      }, revealOpts);
+      document.querySelectorAll('.reveal-up').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal-up').forEach(showUp);
+    }
+
+    // Animated nav underline effect
+    const navLinks = document.querySelectorAll('.links a');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', e => link.classList.add('hovered'));
+      link.addEventListener('mouseleave', e => link.classList.remove('hovered'));
+    });
+
+    // Ripple effect on buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click',function(e) {
+        let ripple=document.createElement('span');
+        ripple.className='ripple';
+        ripple.style.left=e.offsetX+'px';
+        ripple.style.top=e.offsetY+'px';
+        this.appendChild(ripple);
+        setTimeout(()=>ripple.remove(),520);
+      });
+    });
+  // Sticky nav glow on scroll
+  (function(){
+    const hdr=document.querySelector('header'),body=document.body;
+    function toggleNav(){
+      if(window.scrollY>18){body.classList.add('has-scrolled');hdr?.classList.add('sticky-glow');}else{body.classList.remove('has-scrolled');hdr?.classList.remove('sticky-glow');}
+    }
+    window.addEventListener('scroll',toggleNav); toggleNav();
+  })();
   </script>
 </body>
 </html>

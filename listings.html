@@ -27,7 +27,7 @@
       </nav>
     </div>
   </header>
-  <section style="padding:72px 0">
+  <section class="fade-bg" style="padding:72px 0">
     <div class="container">
       <h2>All Listings</h2>
       <p class="lead">Browse through all current properties available in the Bay Area. Click on any to view full details.</p>
@@ -83,6 +83,45 @@
   </footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Fade-up scroll reveal
+    const revealOpts = { threshold: 0.18 };
+    document.querySelectorAll('.card, .listing, .about .pic, .hero-card, .testimonials .card').forEach(el => {
+      el.classList.add('reveal-up');
+    });
+    const showUp = el => el.classList.add('visible');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries,observer)=>{
+        entries.forEach(e=>{if(e.isIntersecting){showUp(e.target);observer.unobserve(e.target);}});
+      }, revealOpts);
+      document.querySelectorAll('.reveal-up').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal-up').forEach(showUp);
+    }
+    // Animated nav underline effect
+    const navLinks = document.querySelectorAll('.links a');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', e => link.classList.add('hovered'));
+      link.addEventListener('mouseleave', e => link.classList.remove('hovered'));
+    });
+    // Ripple effect on buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click',function(e) {
+        let ripple=document.createElement('span');
+        ripple.className='ripple';
+        ripple.style.left=e.offsetX+'px';
+        ripple.style.top=e.offsetY+'px';
+        this.appendChild(ripple);
+        setTimeout(()=>ripple.remove(),520);
+      });
+    });
+    // Sticky nav glow on scroll
+    (function(){
+      const hdr=document.querySelector('header'),body=document.body;
+      function toggleNav(){
+        if(window.scrollY>18){body.classList.add('has-scrolled');hdr?.classList.add('sticky-glow');}else{body.classList.remove('has-scrolled');hdr?.classList.remove('sticky-glow');}
+      }
+      window.addEventListener('scroll',toggleNav); toggleNav();
+    })();
   </script>
 </body>
 </html>
