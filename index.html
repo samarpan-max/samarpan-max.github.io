@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nancy Tran | Bay Area Realtor® — Alliance Bay Realty</title>
   <meta name="description" content="Bay Area Realtor® Nancy Tran (DRE# 02264658) at Alliance Bay Realty—buy, sell, and invest with local expertise. Call (408) 591-9999." />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://muabannhasj.com/" />
+  <meta property="og:title" content="Nancy Tran | Bay Area Realtor® — Alliance Bay Realty" />
+  <meta property="og:description" content="Bay Area Realtor® Nancy Tran (DRE# 02264658) at Alliance Bay Realty—buy, sell, and invest with local expertise." />
+  <meta property="og:image" content="https://muabannhasj.com/images/hero-house.jpg" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nancy Tran | Bay Area Realtor®" />
+  <meta name="twitter:description" content="Bay Area Realtor® helping buyers, sellers, and investors navigate the market with expertise." />
+  <meta name="twitter:image" content="https://muabannhasj.com/images/hero-house.jpg" />
+  
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,9 +209,69 @@
   <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
       <div class="small">© <span id="year"></span> Nancy Tran. All rights reserved.</div>
-      <div class="small">DRE License #02264658 • Brokered by Alliance Bay Realty • <a href="https://muabannhasj.com" target="_blank" rel="noopener">muabannhasj.com</a></div>
+      <div class="small">DRE License #02264658 • Brokered by Alliance Bay Realty • muabannhasj.com</div>
     </div>
   </footer>
+  
+  <!-- Structured Data for SEO (LocalBusiness Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Nancy Tran",
+    "image": "https://muabannhasj.com/about.jpg",
+    "url": "https://muabannhasj.com",
+    "telephone": "+14085919999",
+    "email": "nancytran021@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "37600 Central Ct., #264",
+      "addressLocality": "Newark",
+      "addressRegion": "CA",
+      "postalCode": "94560",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.5297,
+      "longitude": -122.0402
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "San Jose"
+      },
+      {
+        "@type": "City",
+        "name": "Fremont"
+      },
+      {
+        "@type": "City",
+        "name": "San Francisco"
+      },
+      {
+        "@type": "City",
+        "name": "Cupertino"
+      }
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  }
+  </script>
+  
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{

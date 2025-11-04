@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muabannhasj.com/sitemap.xml
+
